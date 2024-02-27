@@ -13,4 +13,19 @@ public class Categoria
     [Required(ErrorMessage = "Por favor, informe o Nome")]
     [StringLength(30, ErrorMessage = "O Nome deve possuir no máximo 30 caracteres")]
     public string Nome { get; set; }
+
+    [StringLength(300)]
+    public string Foto { get; set; }
+
+    [Display(Name = "Exibir como filtro?")]
+    public bool Filtrar { get; set; }
+
+    [Display(Name = "Exibir como Banner?")]
+    public bool Banner { get; set; }
+
+    [Display(Name = "Categoria Mãe")]
+    public int? CategoriaMaeId { get; set; }
+    [ForeignKey("CategoriaMaeId")]
+    public Categoria CategoriaMae { get; set; }
+
 }
