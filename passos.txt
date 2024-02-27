@@ -5,7 +5,6 @@ git config --global user.email gallojunior@gmail.com
 Criar o projeto
 dotnet new mvc -o Cozastore 
 
-
 Nuget Gallery
     Shift + Ctrl + P
     - Pesquisar e Instalar:
@@ -13,3 +12,7 @@ Nuget Gallery
         EntityFrameworkCore.Design
         EntityFrameworkCore.InMemory
         AspNetCore.Identity.EntityFrameworkCore 
+
+
+Criar as classes de dados - Pasta Models
+

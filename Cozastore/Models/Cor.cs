@@ -18,4 +18,7 @@ public class Cor
     [Required(ErrorMessage = "Por favor, informe o Código Hexa")]
     [StringLength(7, ErrorMessage = "O Código Hexa deve possuir no máximo 7 caracteres")]
     public string CodigoHexa { get; set; }
+
+    public ICollection<Estoque> Estoque { get; set; }
+
 }
