@@ -16,3 +16,24 @@ Nuget Gallery
 
 Criar as classes de dados - Pasta Models
 
+Criar a pasta Data e a classe de Contexto
+
+Criar a ConnectionString no arquivo appsettings.json
+
+Criar o serviço de conexão no arquivo Program.cs
+
+Executar no terminal:
+dotnet tool install --global dotnet-aspnet-codegenerator --version 8.0.1
+
+Criar um Controller - CRUD:
+dotnet-aspnet-codegenerator controller -name CoresController -m Cor -dc AppDbContext --relativeFolderPath Controllers -udl
+
+Nuget Gallery
+    Shift + Ctrl + P
+    - Pesquisar e Instalar:
+        Microsoft.VisualStudio.Web.CodeGeneration.Design
+        Microsoft.EntityFrameworkCore.Tools
+        Microsoft.EntityFrameworkCore.SqlServer
+
+
+dotnet-aspnet-codegenerator controller -name CoresController -m Cor -dc AppDbContext --relativeFolderPath Controllers -udl
