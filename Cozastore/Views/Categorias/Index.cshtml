@@ -1,0 +1,55 @@
+@model IEnumerable<Cozastore.Models.Categoria>
+@{
+    ViewData["Title"] = "Categorias";
+}
+
+<h1>Lista de Categorias</h1>
+
+<p>
+    <a class="btn btn-primary my-2" asp-action="Create">
+        <i class="bi bi-plus-lg"></i>
+        Adicionar
+    </a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                Filtro
+            </th>
+            <th>
+                Banner
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaMae)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Filtrar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaMae.Nome)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" title="Alterar"><i class="bi bi-pencil-square"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-search"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

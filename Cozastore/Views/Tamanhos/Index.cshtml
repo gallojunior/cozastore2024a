@@ -1,10 +1,10 @@
-@model IEnumerable<Cozastore.Models.Cor>
+@model IEnumerable<Cozastore.Models.Tamanho>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista de Cores</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                @Html.DisplayNameFor(model => model.Sigla)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CodigoHexa)
+                @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th></th>
         </tr>
@@ -25,10 +25,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Nome)
+                @Html.DisplayFor(modelItem => item.Sigla)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CodigoHexa)
+                @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
