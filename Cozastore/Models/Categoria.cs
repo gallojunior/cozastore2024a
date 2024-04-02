@@ -26,6 +26,7 @@ public class Categoria
     [Display(Name = "Categoria Mãe")]
     public int? CategoriaMaeId { get; set; }
     [ForeignKey("CategoriaMaeId")]
+    [Display(Name = "Categoria Mãe")]
     public Categoria CategoriaMae { get; set; }
 
     public ICollection<Produto> Produtos { get; set; }

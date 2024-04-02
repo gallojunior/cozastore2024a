@@ -1,115 +1,74 @@
 @model IEnumerable<Cozastore.Models.Categoria>
 @{
-    ViewData["Title"] = "Categorias";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+  ViewData["Title"] = "Categorias";
+  Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-
-	<div class="row">
-        <div class="col-12">
-          <div class="card my-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-warning shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Categorias</h6>
-				<i class="material-icons opacity-10">add</i>
-              </div>
-            </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Nome</th>
-					  <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Categoria Pai</th>
-                      <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Filtro</th>
-                      <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Banner</th>
-                      <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Ações</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-				  @foreach(var item in Model)
-				  {
-                    <tr>
-                      <td>
-
-                      </td>
-                      <td>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Sim</span>
-						<span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-					}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+<div class="row">
+  <div class="col-12">
+    <div class="card my-4">
+      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+        <div class="bg-gradient-warning shadow-primary border-radius-lg pt-4 pb-3">
+          <h6 class="text-white text-capitalize ps-3">Categorias</h6>
+          @* <i class="material-icons opacity-10">add</i> *@
         </div>
       </div>
-      
-
-
-
-
-
-
-<h1>Lista de Categorias</h1>
-<p>
-    <a class="btn btn-primary my-2" asp-action="Create">
-        <i class="bi bi-plus-lg"></i>
-        Adicionar
-    </a>
-</p>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                Filtro
-            </th>
-            <th>
-                Banner
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoriaMae)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-                <img src="@item.Foto" width="100">
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Filtrar)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Banner)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoriaMae.Nome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" title="Alterar"><i class="bi bi-pencil-square"></i></a> |
-                <a asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-search"></i></a> |
-                <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+      <div class="card-body px-0 pb-2">
+        <div class="table-responsive p-0">
+          <table class="table table-striped align-items-center mb-0">
+            <thead>
+              <tr>
+                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                  @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                  @Html.DisplayNameFor(model => model.CategoriaMae)
+                </th>
+                <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                  Filtro</th>
+                <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                  Banner</th>
+                <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                  Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach (var item in Model)
+              {
+                <tr>
+                  <td class="text-dark text-sm ps-4">
+                    @Html.DisplayFor(modelItem => item.Nome)
+                  </td>
+                  <td class="text-dark text-sm ps-4">
+                    @Html.DisplayFor(modelItem => item.CategoriaMae.Nome)
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <span class='badge badge-sm bg-gradient-@(item.Filtrar? "success" : "secondary")'>
+                      @(item.Filtrar ? "Sim" : "Não")
+                    </span>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <span class='badge badge-sm bg-gradient-@(item.Banner? "success" : "secondary")'>
+                      @(item.Banner ? "Sim" : "Não")
+                    </span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <a asp-action="Edit" asp-route-id="@item.Id" title="Alterar">
+                      <i class="material-icons">edit</i>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes">
+                      <i class="material-icons">search</i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" title="Excluir">
+                      <i class="material-icons">delete</i>
+                    </a>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
