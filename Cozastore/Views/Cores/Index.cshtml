@@ -28,7 +28,8 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CodigoHexa)
+                <div class="border border-dark rounded-circle"  style="width: 30px; height: 30px; background-color: @item.CodigoHexa;"></div>
+
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

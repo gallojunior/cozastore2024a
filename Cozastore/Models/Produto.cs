@@ -54,5 +54,7 @@ public class Produto
     public Categoria Categoria { get; set; }
 
     public ICollection<Estoque> Estoque { get; set; }
+    public ICollection<ProdutoTag> Tags { get; set; }
+    public ICollection<ProdutoFoto> Fotos { get; set; }
 }
 
