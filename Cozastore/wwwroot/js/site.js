@@ -1,4 +1,14 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿// Dynamic Placeholder
+let elements = document.querySelectorAll('input[type="text"]');
+elements.forEach((elem, index, array) => {
+  let placeholder = elem.placeholder;
+  if (placeholder != "") {
+    elem.placeholder = "";
+    elem.onfocus = () => {
+      elem.placeholder = placeholder;
+    };
+    elem.onblur = () => {
+      elem.placeholder = "";
+    };
+  }
+});

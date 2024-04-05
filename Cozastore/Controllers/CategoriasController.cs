@@ -17,6 +17,15 @@ public class CategoriasController : Controller
         _host = host;
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetCategorias()
+    {
+        var categorias = await _context.Categorias
+                .Include(c => c.CategoriaMae)
+                .ToListAsync();
+        return Json(new { data = categorias });
+    }
+
     // GET: Categorias
     public async Task<IActionResult> Index()
     {
