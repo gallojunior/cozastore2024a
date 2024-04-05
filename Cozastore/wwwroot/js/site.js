@@ -10,5 +10,8 @@ elements.forEach((elem, index, array) => {
     elem.onblur = () => {
       elem.placeholder = "";
     };
+  };
+  if (elem.value != '') {
+    elem.parentElement.classList.add('is-filled');
   }
 });
