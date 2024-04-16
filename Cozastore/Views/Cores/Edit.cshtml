@@ -25,12 +25,16 @@
                         <span asp-validation-for="Nome" class="text-danger"></span>
                     </div>
                     <div class="col-12">
-                        <div class="input-group input-group-outline mb-1">
-                            <label asp-for="CodigoHexa" class="form-label"></label>
-                            <input asp-for="CodigoHexa" class="form-control" onfocus="document.querySelector(input[type='color']).click" />
-                            <input type="color" value="@Model.CodigoHexa"
-                                onchange="document.getElementById('CodigoHexa').value = this.value;"
-                                style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0; cursor: pointer;">
+                        <div class="d-flex">
+                            <div class="input-group input-group-outline mb-1">
+                                <label asp-for="CodigoHexa" class="form-label"></label>
+                                <input asp-for="CodigoHexa" class="form-control" onfocus="document.querySelector(input[type='color']).click" />
+                                <input type="color" value="@Model.CodigoHexa"onchange="ColorChange(this.value)"
+                                    style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0; cursor: pointer;">
+                            </div>
+                            <div id="circle" class="border border-dark rounded-circle ms-2"
+                                style="width: 36px; height: 36px; background-color: @Model.CodigoHexa; ">
+                            </div>
                         </div>
                         <span asp-validation-for="CodigoHexa" class="text-danger"></span>
                     </div>
@@ -44,5 +48,11 @@
     </div>
 </div>
 
-
-
+@section Scripts {
+    <script>
+        function ColorChange(color) {
+            document.getElementById('CodigoHexa').value = color;
+            document.getElementById('circle').style = `width: 36px; height: 36px; background-color: ${color}`;
+        }
+    </script>
+}

@@ -95,31 +95,6 @@ public class AppDbSeed
         builder.Entity<Categoria>().HasData(categorias);
         #endregion
 
-        #region Populate Tag
-        List<Tag> tags = new() {
-            new Tag() {
-                Id = 1,
-                Nome = "Fashion"
-            },
-            new Tag() {
-                Id = 2,
-                Nome = "LifeStyle"
-            },
-            new Tag() {
-                Id = 3,
-                Nome = "Denim"
-            },
-            new Tag() {
-                Id = 4,
-                Nome = "StreetStyle"
-            },new Tag() {
-                Id = 5,
-                Nome = "Crafts"
-            }
-        };
-        builder.Entity<Tag>().HasData(tags);
-        #endregion
-
         #region Populate Tamanho
         List<Tamanho> tamanhos = new() {
             new Tamanho() {
@@ -283,15 +258,6 @@ public class AppDbSeed
         };
         builder.Entity<Produto>().HasData(produtos);
 
-
-        List<ProdutoTag> produtoTags = new();
-        for (int i = 1; i <= 12; i++)
-            produtoTags.Add(new ProdutoTag()
-            {
-                ProdutoId = i,
-                TagId = (byte)(new Random().Next(5) + 1)
-            });
-        builder.Entity<ProdutoTag>().HasData(produtoTags);
 
         List<ProdutoFoto> produtoFotos = new();
         for (int i = 1; i <= 12; i++)

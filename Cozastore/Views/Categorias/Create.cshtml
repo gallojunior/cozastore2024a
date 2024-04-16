@@ -4,49 +4,68 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Categoria</h1>
-<h4>Adicionar</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4 mx-auto">
-        <form asp-action="Create" method="POST" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group mb-3">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+	<div class="col-12">
+		<div class="card my-4">
+			<div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <div
+                    class="bg-gradient-warning shadow-primary border-radius-lg py-4 d-flex justify-content-between align-items-center">
+                    <h5 class="text-white text-capitalize m-0 ps-3">@ViewData["Title"]</h5>
+                    <a class="text-white text-capitalize ps-3 align-items-center d-flex me-4" asp-action="Create">
+                        <i class="material-icons opacity-10 me-2">add</i> Adicionar
+                    </a>
+                </div>
             </div>
-            <div class="form-group form-check mb-3">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Filtrar" /> @Html.DisplayNameFor(model => model.Filtrar)
-                </label>
-            </div>
-            <div class="form-group form-check mb-3">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Banner" /> @Html.DisplayNameFor(model => model.Banner)
-                </label>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="CategoriaMaeId" class="form-label"></label>
-                <select asp-for="CategoriaMaeId" class ="form-select" asp-items="ViewBag.CategoriaMaeId">
-                    <option value="">Selecione uma Categoria Mãe</option>
-                </select>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Foto" class="control-label"></label>
-                <img id="Preview" class="img-fluid w-100" />
-                <input type="file" asp-for="Foto" class="form-control" accept=".jpg,.jpeg,.png,.gif,.jfif" />
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+			<div class="card-body pb-2">
+                <form class="row" asp-action="Create" method="POST" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="COL-12 text-danger"></div>
+                    <div class="col-lg-8 col-md-7">
+                        <div class="col-12 mb-3">
+                            <div class="input-group input-group-outline mb-1">
+                                <label asp-for="Nome" class="form-label"></label>
+                                <input asp-for="Nome" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <div class="input-group input-group-outline mb-1">
+                                <label asp-for="CategoriaMaeId" class="form-label"></label>
+                                <select asp-for="CategoriaMaeId" class ="form-control" asp-items="ViewBag.CategoriaMaeId">
+                                    <option value="">Selecione uma Categoria Mãe</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group form-check mb-3">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="Filtrar" /> @Html.DisplayNameFor(model => model.Filtrar)
+                            </label>
+                        </div>
+                        <div class="form-group form-check mb-3">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="Banner" /> @Html.DisplayNameFor(model => model.Banner)
+                            </label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="CategoriaMaeId" class="form-label"></label>
+                            <select asp-for="CategoriaMaeId" class ="form-select" asp-items="ViewBag.CategoriaMaeId">
+                                <option value="">Selecione uma Categoria Mãe</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Foto" class="control-label"></label>
+                        <img id="Preview" class="img-fluid w-100" />
+                        <input type="file" asp-for="Foto" class="form-control" accept=".jpg,.jpeg,.png,.gif,.jfif" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Salvar" class="btn btn-primary" />
+                    </div>
+                </form>
+			</div>
+		</div>
+	</div>
 </div>
 
-<div>
-    <a asp-action="Index">Voltar a listagem</a>
-</div>
 
 @section Scripts {
     <script>
