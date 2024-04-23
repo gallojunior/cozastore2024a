@@ -62,7 +62,7 @@
 
         if (replace) {
             container.empty();
-            error.removeClass("is-invalid").appendTo(container);
+            error.removeClass("input-validation-error").appendTo(container);
         }
         else {
             error.hide();
@@ -137,7 +137,7 @@
         if (!result) {
             result = {
                 options: {  // options structure passed to jQuery Validate's validate() method
-                    errorClass: defaultOptions.errorClass || "is-invalid",
+                    errorClass: defaultOptions.errorClass || "input-validation-error",
                     errorElement: defaultOptions.errorElement || "span",
                     errorPlacement: function () {
                         onError.apply(form, arguments);

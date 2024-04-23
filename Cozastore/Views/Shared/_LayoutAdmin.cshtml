@@ -34,8 +34,9 @@
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
-  <link id="pagestyle" href="~/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css">
+  <link id="pagestyle" href="~/assets/css/material-dashboard.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
+
 </head>
 
 <body class="g-sidenav-show  bg-gray-200" style="min-height: 100vh;">
@@ -109,12 +110,12 @@
       </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-      <div class="mx-3">
-        <a asp-controller="Home" asp-action="Index" class="btn bg-gradient-danger w-100" type="button">
+      <form asp-action="Logout" asp-controller="Account" method="POST" class="mx-3">
+        <button type="submit" class="btn bg-gradient-danger w-100">
           <i class="material-icons opacity-10">logout</i>
           Sair
-        </a>
-      </div>
+        </button>
+      </form>
     </div>
   </aside>
   <main class="main-content border-radius-lg d-flex flex-column" style="min-height: 100vh;">
@@ -159,6 +160,7 @@
     <div class="container-fluid py-4 pe-3 flex-grow-1">
 
       @RenderBody()
+
       
     </div>
     <footer class="footer py-3 w-100">
@@ -198,10 +200,9 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="~/assets/js/material-dashboard.min.js?v=3.1.0"></script>
-  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
-  <script src="~/js/site.js" ></script>
-  <partial name="_ValidationScriptsPartial.cshtml"></partial>
+  <script src="~/assets/js/material-dashboard.js"></script>
+  <script src="~/assets/js/site.js" ></script>
+  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
   @await RenderSectionAsync("Scripts", required: false)
 </body>
 

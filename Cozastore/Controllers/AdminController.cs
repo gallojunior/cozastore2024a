@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cozastore.Controllers;
 
+[Authorize(Roles = "Administrador, Funcionário")]
 public class AdminController : Controller
 {
     private readonly ILogger<AdminController> _logger;
